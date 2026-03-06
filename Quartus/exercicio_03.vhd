@@ -1,0 +1,32 @@
+--LIBRARY ieee;
+--USE ieee.std_logic_1164.all;
+--
+--ENTITY digital_X IS
+--port ( 
+--	a,b,c: in std_logic;
+--	S: out std_logic
+--);
+--END digital_X ;
+--
+--ARCHITECTURE digital_X_arch OF digital_X IS
+--signal t1,t2 : std_logic;
+--
+--component porta_and IS
+--port ( 
+--	E1,E2: in std_logic;
+--	S: out std_logic
+--);
+--END component;
+--
+--component porta_not IS
+--port ( 
+--	E1: in std_logic;
+--	S: out std_logic
+--);
+--END component;
+--
+--BEGIN
+--	and1:porta_and port map ( a, b, t1);
+--	not1:porta_not port map (c, t2);
+--	and2:porta_and port map (t1, t2, s);
+--END digital_X_arch ;

@@ -1,0 +1,27 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY digital_X IS
+port ( 
+	EN1, EN2, SA : in std_logic_vector(3 downto 0;
+	SELE: out std_logic
+);
+END digital_X ;
+
+ARCHITECTURE digital_X_arch OF digital_X IS
+
+component mux2x1 IS
+port ( 
+	E1, E2, SEL: in std_logic;
+	S: out std_logic
+);
+END component;
+
+BEGIN
+	mux1 : mux2x1 port map(
+		E1 => EN1(0),
+		E2 => EN2(0),
+		SEL => SELE,
+		S => SA(0)
+	);
+END digital_X_arch ;

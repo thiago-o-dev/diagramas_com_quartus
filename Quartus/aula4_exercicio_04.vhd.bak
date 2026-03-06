@@ -1,0 +1,43 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY digital_X IS
+port ( 
+	ENTRADA : in std_logic_vector(3 downto 0);
+	PARIDADE : in std_logic;
+	ERRO : out std_logic
+);
+END digital_X ;
+
+ARCHITECTURE digital_X_arch OF digital_X IS
+signal t1,t2, t3 : std_logic;
+
+component porta_xor IS
+port ( 
+	E1, E2: in std_logic;
+	S: out std_logic
+);
+END component;
+
+BEGIN
+	xor1 : porta_xor port map(
+		E1 => ENTRADA(0),
+		E2 => ENTRADA(1),
+		S => t1
+	);
+	xor2 : porta_xor port map(
+		E1 => ENTRADA(2),
+		E2 => ENTRADA(3),
+		S => t2
+	);
+	xor3 : porta_xor port map(
+		E1 => t1,
+		E2 => t2,
+		S => t3
+	);
+	xor4 : porta_xor port map(
+		E1 => t3,
+		E2 => PARIDADE,
+		S => ERRO
+	);
+END digital_X_arch ;
