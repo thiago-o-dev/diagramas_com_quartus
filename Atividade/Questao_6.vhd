@@ -1,0 +1,47 @@
+--library ieee;
+--USE ieee.std_logic_1164.all;
+--
+--ENTITY Atividade IS
+--	PORT (
+--		din : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+--		Sn : OUT STD_LOGIC
+--	);
+--END Atividade;
+--
+--
+--ARCHITECTURE arch_Atividade OF Atividade IS
+--	signal dout : STD_LOGIC_VECTOR(7 DOWNTO 0);
+--	signal S1, S2, S3, S4, S5, S6 : STD_LOGIC;
+--	
+--	Component decode3x8 IS
+--	port ( 
+--		din : IN STD_LOGIC_VECTOR(2 DOWNTO 0);
+--		dout: OUT STD_LOGIC_VECTOR(7 DOWNTO 0)
+--	); 
+--	END component;
+--	
+--	Component porta_or IS
+--	port ( 
+--		E1, E2 : IN STD_LOGIC;
+--		S : OUT STD_LOGIC
+--	); 
+--	END component;
+--
+--BEGIN
+--		comp_decode3x8 : decode3x8 port map( din => din, dout => dout );
+--		
+--		comp_porta_or1 : porta_or port map( E1 => dout(0), E2 => dout(1), S => S1 );
+--		
+--		comp_porta_or2 : porta_or port map( E1 => dout(2), E2 => dout(3), S => S2 );
+--		
+--		comp_porta_or3 : porta_or port map( E1 => dout(4), E2 => dout(5), S => S3 );
+--		
+--		comp_porta_or4 : porta_or port map( E1 => dout(6), E2 => dout(7), S => S4 );
+--		
+--		comp_porta_or5 : porta_or port map( E1 => S1, E2 => S2, S => S5 );
+--		
+--		comp_porta_or6 : porta_or port map( E1 => S3, E2 => S4, S => S6 );
+--		
+--		comp_porta_or7 : porta_or port map( E1 => S5, E2 => S6, S => Sn );
+--		
+--END arch_Atividade;

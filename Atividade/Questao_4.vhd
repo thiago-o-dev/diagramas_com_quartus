@@ -1,0 +1,40 @@
+--library ieee;
+--USE ieee.std_logic_1164.all;
+--
+--ENTITY Atividade IS
+--	PORT (
+--		An, Bn, Cn_1 : IN STD_LOGIC;
+--		Sn, Cn : OUT STD_LOGIC
+--	);
+--END Atividade;
+--
+--
+--ARCHITECTURE arch_Atividade OF Atividade IS
+--
+--	signal S_ha_1, C_ha_1, C_ha_2 : STD_LOGIC;
+--	
+--	Component HA IS
+--	port ( 
+--		A, B : IN STD_LOGIC;
+--		S, C: OUT STD_LOGIC
+--	);
+--	END component;
+--
+--BEGIN
+--		u1 : HA port map(
+--				A => An,
+--				B => Bn,
+--				S => S_ha_1,
+--				C => C_ha_1
+--			);
+--			
+--		u2 : HA port map(
+--				A => S_ha_1,
+--				B => Cn_1,
+--				S => Sn,
+--				C => C_ha_2
+--			);
+--		
+--		Cn <= not C_ha_2 or not C_ha_1;
+--		
+--END arch_Atividade;

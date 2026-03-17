@@ -1,0 +1,56 @@
+--library ieee;
+--USE ieee.std_logic_1164.all;
+--
+--ENTITY Atividade IS
+--	PORT (
+--		E1, E2, E3, E4, E5, E6, E7, E8 : IN STD_LOGIC;
+--		Sn : OUT STD_LOGIC
+--	);
+--END Atividade;
+--
+--
+--ARCHITECTURE arch_Atividade OF Atividade IS
+--
+--	signal S_xor, S_and, S_or, S_mux1 : STD_LOGIC;
+--	
+--	Component mux2x1 IS
+--	port ( 
+--		E1, E2, SEL : IN STD_LOGIC;
+--		S : OUT STD_LOGIC
+--	); END component;
+--	
+--	Component porta_or IS
+--	port ( 
+--		E1, E2 : IN STD_LOGIC;
+--		S : OUT STD_LOGIC
+--	); END component;
+--	
+--	Component porta_xor IS
+--	port ( 
+--		E1, E2 : IN STD_LOGIC;
+--		S : OUT STD_LOGIC
+--	); END component;
+--	
+--	Component porta_and IS
+--	port ( 
+--		E1, E2 : IN STD_LOGIC;
+--		S : OUT STD_LOGIC
+--	); END component;
+--
+--BEGIN
+--		comp_porta_xor : porta_xor port map(
+--				E1 => E3, E2 => E4, S => S_xor );
+--		
+--		comp_porta_and : porta_and port map(
+--				E1 => E1, E2 => E2, S => S_and );
+--		
+--		comp_porta_or : porta_or port map(
+--				E1 => E5, E2 => E6, S => S_or );
+--		
+--		comp_mux2x1_1 : mux2x1 port map(
+--				E1 => S_and, E2 => S_xor, SEL => E7, S => S_mux1 );
+--			
+--		comp_mux2x1_2 : mux2x1 port map(
+--				E1 => S_mux1, E2 => S_or, SEL => E8, S => Sn );
+--		
+--END arch_Atividade;

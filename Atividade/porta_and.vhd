@@ -1,0 +1,14 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.all;
+
+ENTITY porta_and IS
+port ( 
+	E1,E2: in std_logic;
+	S: out std_logic
+);
+END porta_and;
+
+ARCHITECTURE porta_and_arch OF porta_and IS
+BEGIN
+	S <= E1 and E2;
+END porta_and_arch;
