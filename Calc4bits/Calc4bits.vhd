@@ -4,12 +4,9 @@ use ieee.numeric_std.all;
 
 ENTITY Calc4bits IS
 	PORT (
-		din1 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
-		din2 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
+		din1, din2 : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 		
-		dout_din1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-		dout_din2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
-		dout_result : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
+		dout_din1, dout_din2, dout_result,dout_result2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0)
 	);
 END Calc4bits;
 
@@ -29,7 +26,7 @@ ARCHITECTURE arch_Calc4bits OF Calc4bits IS
 	END component;
 
 BEGIN
-	sum_result <= std_logic_vector(unsigned(din1) + unsigned(din2));
+	sum_result <= std_logic_vector(resize(unsigned(din1), 8) + resize(unsigned(din2), 8));
 --	or1 : porta_or port map(
 --		E1 => ENTRADA(0),
 --		E2 => ENTRADA(1),
@@ -46,12 +43,13 @@ BEGIN
 			);
 		
 		u3 : Decode4x16 port map(
-				din => sum_result,
-				dout => dout_result(3 DOWNTO 0)
+				din => sum_result(3 DOWNTO 0),
+				dout => dout_result
 			);
+		
 		u4 : Decode4x16 port map(
-				din => sum_result,
-				dout => dout_result(7 DOWNTO 4)
+				din => sum_result(7 DOWNTO 4),
+				dout => dout_result2
 			);
 		
 END arch_Calc4bits;
