@@ -1,0 +1,26 @@
+# Quartus Prime / Altera Generated Files
+db/
+incremental_db/
+output_files/
+simulation/
+*.qws
+*.rpt
+*.sof
+*.pof
+*.summary
+*.log
+*.jdi
+*.hex
+*.mif
+*.pin
+*.smsg
+*~
+
+# Qsys / Platform Designer
+*.qsys
+*.qgip
+.qsys_edit/
+
+# Temporary / Backup Files
+*.bak
+*.temp
