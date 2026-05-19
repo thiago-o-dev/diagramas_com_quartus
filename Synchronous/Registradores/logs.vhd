@@ -1,0 +1,76 @@
+-- Versão antiga do contador em  monolito
+
+----LIBRARY ieee;
+----USE ieee.std_logic_1164.all;
+----USE ieee.std_logic_unsigned.all;
+----
+----entity Contador is
+----	port (
+----		CLK : in std_logic;
+----		S : out std_logic
+----	);
+----end Contador;
+----
+----architecture arch_Contador of Contador is
+----	signal count : integer range 0 to 50 := 0;
+----	
+----	begin
+----	
+----	process(CLK) begin
+----		if CLK'event and CLK = '1' then
+----			if count <= 25 then
+----				S <= '1';
+----			else
+----				S <= '0';
+----			end if;
+----		count <= count + 1;
+----	end process;
+----	
+----end arch_Contador;
+--
+--LIBRARY ieee;
+--USE ieee.std_logic_1164.all;
+--USE ieee.std_logic_unsigned.all;
+--
+--entity Contador is
+--	port (
+--		MAX10_CLK1_50 : in std_logic;
+--		LEDR : out std_logic_vector(9 downto 0)
+--	);
+--end Contador;
+--
+--architecture arch_Contador of Contador is
+--	signal count : integer range 0 to 50000000 := 0;
+--	signal S : std_logic := '0';
+--	signal binario : std_logic_vector(3 downto 0) := "0000";
+--	
+--	begin 
+--	process(MAX10_CLK1_50)
+--		begin
+--		if MAX10_CLK1_50'event and MAX10_CLK1_50 = '1' then
+--			if count <= 25000000 then
+--				S <= '1';
+--			else
+--				S <= '0';
+--			end if;
+--			
+--			if count = 50000000 then
+--				count <= 0;
+--			else
+--				count <= count + 1;
+--			end if;
+--		end if;
+--	end process;
+--	
+--	process(S)
+--	begin
+--		if S'event and S = '1' then
+--			binario <= binario + 1;
+--		end if;
+--	end process;
+--	
+--	LEDR(3 downto 0) <= binario;
+--	LEDR(8 downto 4) <= "00000";
+--	LEDR(9) <= S;
+--	
+--end arch_Contador;
